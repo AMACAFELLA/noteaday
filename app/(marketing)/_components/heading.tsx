@@ -2,6 +2,7 @@
 
 import { Spinner } from "@/components/spinner"
 import { Button } from "@/components/ui/button"
+import { SignInButton } from "@clerk/clerk-react"
 import { useConvexAuth } from "convex/react"
 import { ArrowRight } from "lucide-react"
 import Link from "next/link"
@@ -29,6 +30,14 @@ export const Heading = () => {
                         <ArrowRight className="h-4 w-4 ml-2" />
                     </Link>
                 </Button>
+            )}
+            {!isAuthenticated && !isLoading && (
+                <SignInButton mode="modal">
+                    <Button>
+                        Get Started
+                        <ArrowRight className="h-4 w-4 ml-2" />
+                    </Button>
+                </SignInButton>
             )}
         </div>
     )
